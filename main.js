@@ -1,3 +1,6 @@
+const random = (n) => Math.floor(Math.random() * n);
+const answer = wordList[random(wordList.length)];
+
 let startTime;
 let isOver = false;
 const overlapSign = ['〇', '×', '△', '□', '◇', '▽'];

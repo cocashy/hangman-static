@@ -1,6 +1,64 @@
-{% extends 'layout.html' %}
-{% block content %}
-  <div class="random">
-    <a href="/random">RANDOM</a>
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="theme-color" content="silver">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HangMania</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <header>
+    <h1><a href="./index.html">HangMania</a></h1>
+  </header>
+  <div id="game-board">
+    <button class="start-button" id="start-button">START</button>
+    <div class="row" id="display-row"></div>
+    <div class="row" id="overlap-row"></div>
+    <div class="row" id="entry-row"></div>
+    <div class="row" id="timer">00:00.000</div>
+    <div class="row" id="no-match-row"></div>
   </div>
-{% endblock %}
+  <div id="keyboard">
+    <div class="first-row">
+      <button class="keyboard-button">Q</button>
+      <button class="keyboard-button">W</button>
+      <button class="keyboard-button">E</button>
+      <button class="keyboard-button">R</button>
+      <button class="keyboard-button">T</button>
+      <button class="keyboard-button">Y</button>
+      <button class="keyboard-button">U</button>
+      <button class="keyboard-button">I</button>
+      <button class="keyboard-button">O</button>
+      <button class="keyboard-button">P</button>
+    </div>
+    <div class="second-row">
+      <button class="keyboard-button">A</button>
+      <button class="keyboard-button">S</button>
+      <button class="keyboard-button">D</button>
+      <button class="keyboard-button">F</button>
+      <button class="keyboard-button">G</button>
+      <button class="keyboard-button">H</button>
+      <button class="keyboard-button">J</button>
+      <button class="keyboard-button">K</button>
+      <button class="keyboard-button">L</button>
+    </div>
+    <div class="third-row">
+      <button class="keyboard-button" id="del">Del</button>
+      <button class="keyboard-button">Z</button>
+      <button class="keyboard-button">X</button>
+      <button class="keyboard-button">C</button>
+      <button class="keyboard-button">V</button>
+      <button class="keyboard-button">B</button>
+      <button class="keyboard-button">N</button>
+      <button class="keyboard-button">M</button>
+      <button class="keyboard-button" id="enter">Enter</button>
+    </div>
+  </div>
+  <script src="list.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>
