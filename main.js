@@ -1,4 +1,4 @@
-OVERLAP_SIGNS = ['〇', '×', '△', '□', '◇', '▽'];
+OVERLAP_SIGNS = ["〇", "×", "△", "□", "◇", "▽"];
 
 let game;
 window.onload = () => {
@@ -68,7 +68,7 @@ class Game {
     }
 
     const keyDownEvent = new KeyboardEvent("keydown", {
-      'key': key
+      "key": key
     });
 
     document.dispatchEvent(keyDownEvent);
@@ -85,14 +85,14 @@ class Game {
 
     if (!this.isInPlay) return;
 
-    if (e.key.match('^[a-zA-Z]{1}$')) {
+    if (e.key.match("^[a-zA-Z]{1}$")) {
       this.entryBox.innerText = e.key.toUpperCase();
-    } else if (e.key == 'Backspace') {
-      this.entryBox.innerText = '';
-    } else if (e.key == 'Enter') {
+    } else if (e.key == "Backspace") {
+      this.entryBox.innerText = "";
+    } else if (e.key == "Enter") {
       this.checkKey(this.entryBox.innerText);
       this.checkStatus();
-      this.entryBox.innerText = '';
+      this.entryBox.innerText = "";
     }
   }
 
