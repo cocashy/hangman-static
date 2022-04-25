@@ -55,6 +55,6 @@ header {
   align-items: center;
 }
 
-#reload-button div, #search-button div {
+#reload-button, #search-button {
   visibility: hidden;
 }
