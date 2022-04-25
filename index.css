@@ -10,8 +10,8 @@ header {
 }
 
 .row {
-  height: 2rem;
   display: flex;
+  height: 2rem;
 }
 
 #game-board {
@@ -23,12 +23,12 @@ header {
 }
 
 .letter-box {
-  margin: 2px;
-  width: 1.5rem;
-  height: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 2px;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 #keyboard div {
@@ -40,19 +40,19 @@ header {
 }
 
 .keyboard-button {
+  cursor: pointer;
+  margin: 0 2px;
+  padding: 0.5rem;
   font-size: 1rem;
   font-weight: 700;
-  padding: 0.5rem;
-  margin: 0 2px;
-  cursor: pointer;
 }
 
 .button {
+  align-items: center;
+  margin: 0.3rem;
+  padding: 0.5rem;
   font-size: 1rem;
   font-weight: 700;
-  padding: 0.5rem;
-  margin: 0.3rem;
-  align-items: center;
 }
 
 #reload-button, #search-button {
