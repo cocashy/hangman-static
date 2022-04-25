@@ -2,25 +2,20 @@ header {
   text-align: center;
 }
 
-.button {
-  font-size: 1rem;
-  font-weight: 700;
-  padding: 0.5rem;
-  margin: 0.5rem;
+.container {
+  display: flex;
   align-items: center;
-}
-
-#search-button {
-  visibility: hidden;
-}
-
-#game-board {
-  visibility: hidden;
+  flex-direction: column;
+  margin: 0.5rem;
 }
 
 .row {
   height: 2rem;
   display: flex;
+}
+
+#game-board {
+  visibility: hidden;
 }
 
 #display-row .letter-box {
@@ -34,12 +29,6 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.board {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 #keyboard div {
@@ -56,4 +45,16 @@ header {
   padding: 0.5rem;
   margin: 0 2px;
   cursor: pointer;
+}
+
+.button {
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.5rem;
+  margin: 0.3rem;
+  align-items: center;
+}
+
+#reload-button div, #search-button div {
+  visibility: hidden;
 }
