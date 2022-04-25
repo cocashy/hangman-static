@@ -2,7 +2,7 @@ const random = (n) => Math.floor(Math.random() * n);
 const answer = wordList[random(wordList.length)];
 
 let startTime;
-let isOver = false;
+let gameStatus = "await";
 const overlapSign = ['〇', '×', '△', '□', '◇', '▽'];
 const overlapList = [...answer].filter((v, i, array) => !(array.indexOf(v) == i));
 const noMatchList = [];
@@ -11,9 +11,11 @@ let gameBoard;
 let displayRow;
 let overlapRow;
 let entryBox;
-const startButton = document.getElementById('start-button');
+
 const timer = document.getElementById('timer');
 const noMatchRow = document.getElementById('no-match-row');
+const startButton = document.getElementById('start-button');
+const searchButton = document.getElementById("search-button");
 
 const initBoard = () => {
   gameBoard = document.getElementById("display-row");
@@ -73,30 +75,43 @@ const inputKey = (key) => {
   }
 }
 
+searchButton.onclick = () => {
+  window.open("https://www.google.com/search?q=" + answer.toLowerCase());
+}
+
 const checkGameStatus = () => {
   const isCompleted = [...answer].every((letter, i) => {
     return displayRow.children[i].innerText == letter;
   });
   if (noMatchList.length >= 7 || isCompleted) {
-    isOver = true;
+    gameStatus = "over";
     [...answer].forEach((letter, i) => {
       displayRow.children[i].innerText = letter;
     });
+    searchButton.style.visibility = "visible";
   }
 }
 
 document.addEventListener('keydown', (e) => {
-  if (isOver) return;
-
   const pressedKey = e.key;
-  if (pressedKey.match('^[a-zA-Z]{1}$')) {
-    entryBox.innerText = pressedKey.toUpperCase();
-  } else if (pressedKey == 'Backspace') {
-    entryBox.innerText = '';
-  } else if (pressedKey == 'Enter') {
-    inputKey(entryBox.innerText);
-    checkGameStatus();
-    entryBox.innerText = '';
+  if (gameStatus == "await") {
+    if (pressedKey == ' ' && gameStatus == "await") {
+      startGame();
+    }
+  } else if (gameStatus == "playing") {
+    if (pressedKey.match('^[a-zA-Z]{1}$')) {
+      entryBox.innerText = pressedKey.toUpperCase();
+    } else if (pressedKey == 'Backspace') {
+      entryBox.innerText = '';
+    } else if (pressedKey == 'Enter') {
+      inputKey(entryBox.innerText);
+      checkGameStatus();
+      entryBox.innerText = '';
+    }
+  } else if (gameStatus == "over") {
+
+  } else {
+
   }
 });
 
@@ -106,17 +121,17 @@ const countUp = () => {
   const sec = String(nowTime.getSeconds()).padStart(2, 0);
   const ms = String(nowTime.getMilliseconds()).padStart(3, 0);
   timer.innerText = `${min}:${sec}.${ms}`;
-  if (!isOver) {
+  if (gameStatus != "over") {
     setTimeout(countUp, 10);
   }
 }
 
-startButton.addEventListener('click', () => {
-  const rows = document.getElementsByClassName("row");
-  for (let i = 0; i < rows.length; i++) {
-    rows[i].style.visibility = 'visible';
-  }
-  startButton.style.visibility = 'hidden';
+const startGame = () => {
+  gameStatus = "playing";
+  document.getElementById("game-board").style.visibility = "visible";
+  startButton.style.visibility = "hidden";
   startTime = Date.now();
   countUp();
-});
+}
+
+startButton.addEventListener('click', startGame);

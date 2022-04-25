@@ -13,15 +13,14 @@
   <header>
     <h1>HangMan</h1>
   </header>
-  <div id="game-board">
-    <button class="start-button" id="start-button">START</button>
+  <div class="board" id="game-board">
     <div class="row" id="display-row"></div>
     <div class="row" id="overlap-row"></div>
     <div class="row" id="entry-row"></div>
     <div class="row" id="timer">00:00.000</div>
     <div class="row" id="no-match-row"></div>
   </div>
-  <div id="keyboard">
+  <div class="board" id="keyboard">
     <div class="first-row">
       <button class="keyboard-button">Q</button>
       <button class="keyboard-button">W</button>
@@ -56,6 +55,10 @@
       <button class="keyboard-button">M</button>
       <button class="keyboard-button" id="enter">Enter</button>
     </div>
+  </div>
+  <div class="board" id="button-board">
+    <button class="button" id="start-button">START</button>
+    <button class="button" id="search-button">SEARCH</button>
   </div>
   <script src="list.js"></script>
   <script src="main.js"></script>
