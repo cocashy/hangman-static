@@ -39,21 +39,20 @@ class Game {
   }
 
   createBoard() {
-    for (let letter of this.answer) {
-      let box = document.createElement("div");
-      box.className = "letter-box";
-      this.displayRow.appendChild(box);
-    }
-
     const overlapRow = document.getElementById("overlap-row");
     const overlapList = [...this.answer].filter((v, i, array) => !(array.indexOf(v) == i));
+
     for (let letter of this.answer) {
-      let box = document.createElement("div");
-      box.className = "letter-box";
+      let displayBox = document.createElement("div");
+      displayBox.className = "letter-box";
+      this.displayRow.appendChild(displayBox);
+
+      let overlapBox = document.createElement("div");
+      overlapBox.className = "letter-box";
       if (overlapList.includes(letter)) {
-        box.innerText = OVERLAP_SIGNS[overlapList.indexOf(letter)];
+        overlapBox.innerText = OVERLAP_SIGNS[overlapList.indexOf(letter)];
       }
-      overlapRow.appendChild(box);
+      overlapRow.appendChild(overlapBox);
     }
   }
 
